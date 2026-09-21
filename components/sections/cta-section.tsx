@@ -20,30 +20,32 @@ export function CtaSection({
   className?: string;
 }) {
   return (
-    <section className={cn("bg-callout text-white", className)} aria-label={typeof title === "string" ? title : undefined}>
+    <section
+      className={cn("border-y border-line bg-surface text-ink", className)}
+      aria-label={typeof title === "string" ? title : undefined}
+    >
       <Container className="py-16 md:py-24">
-        <div className="backdrop-grid rounded-none" />
         <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
           <div>
-            <p className="mb-3 text-[0.8125rem] font-semibold uppercase tracking-[0.16em] text-primary-light">
+            <p className="mb-3 text-[0.8125rem] font-semibold uppercase tracking-[0.16em] text-primary">
               {eyebrow}
             </p>
-            <h2 className="max-w-xl text-3xl font-semibold leading-tight text-white md:text-4xl">
+            <h2 className="max-w-xl text-3xl font-semibold leading-tight text-ink md:text-4xl">
               {title}
             </h2>
             {description && (
-              <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/80">
+              <p className="mt-4 max-w-xl text-lg leading-relaxed text-body">
                 {description}
               </p>
             )}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <LinkButton href={primaryCta.href} variant="onDark" icon="arrowRight" iconRight>
+              <LinkButton href={primaryCta.href} icon="arrowRight" iconRight>
                 {primaryCta.label}
               </LinkButton>
               {secondaryCta && (
                 <LinkButton
                   href={secondaryCta.href}
-                  className="border border-white/25 text-ink hover:border-white hover:text-white"
+                  className="border-line text-body hover:border-primary hover:text-primary"
                   variant="secondary"
                 >
                   {secondaryCta.label}
@@ -56,7 +58,7 @@ export function CtaSection({
               {points.map((point) => (
                 <li
                   key={point}
-                  className="flex items-start gap-3 rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-[0.9375rem] text-white/90"
+                  className="flex items-start gap-3 rounded-lg border border-line bg-canvas px-4 py-3 text-[0.9375rem] text-body"
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -64,7 +66,7 @@ export function CtaSection({
                     stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"
-                    className="mt-0.5 h-5 w-5 shrink-0 text-primary-light"
+                    className="mt-0.5 h-5 w-5 shrink-0 text-primary"
                     aria-hidden="true"
                   >
                     <path d="M5 12l4 4 10-10" />
