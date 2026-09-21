@@ -8,6 +8,9 @@ const isSmtpConfigured = (): boolean =>
 
 function buildTransport(): EmailTransport {
   if (!isSmtpConfigured()) {
+    console.warn(
+      "[email] SMTP not configured — set SMTP_HOST and CONTACT_EMAIL to send real mail. Falling back to LogTransport.",
+    );
     return new LogTransport();
   }
   const port = Number(process.env.SMTP_PORT ?? 587);

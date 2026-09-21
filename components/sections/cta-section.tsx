@@ -43,7 +43,7 @@ export function CtaSection({
               {secondaryCta && (
                 <LinkButton
                   href={secondaryCta.href}
-                  className="border border-white/25 text-white hover:border-white hover:text-white"
+                  className="border border-white/25 text-ink hover:border-white hover:text-white"
                   variant="secondary"
                 >
                   {secondaryCta.label}

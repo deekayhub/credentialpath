@@ -27,7 +27,8 @@ export class SmtpTransport implements EmailTransport {
       const client = new SmtpClient(this.config);
       await client.send(buildMessage(this.config.to, payload));
       return { ok: true };
-    } catch {
+    } catch (err) {
+      console.error("[email] SMTP send failed:", err);
       return { ok: false, reason: "smtp-error" };
     }
   }
@@ -115,11 +116,19 @@ class SmtpClient {
       let buffer = "";
       const onData = (chunk: Buffer) => {
         buffer += chunk.toString("utf8");
-        if (!/^\d{3}[ ]/.test(buffer) || !buffer.endsWith(LINE_END)) return;
-        sock.removeListener("data", onData);
-        const code = Number(buffer.slice(0, 3));
-        if (code >= 200 && code < 300) return resolve();
-        reject(new Error(`SMTP server replied ${code}: ${buffer.trim()}`));
+        let idx: number;
+        while ((idx = buffer.indexOf(LINE_END)) !== -1) {
+          const line = buffer.slice(0, idx);
+          buffer = buffer.slice(idx + LINE_END.length);
+          const match = /^(\d{3})([ -])/.exec(line);
+          if (!match) continue;
+          const code = Number(match[1]);
+          if (match[2] === "-") continue; // multiline reply: keep reading
+          sock.removeListener("data", onData);
+          // 2xx success, 3xx intermediate (e.g. 334 during AUTH) are fine.
+          if (code >= 200 && code < 400) return resolve();
+          return reject(new Error(`SMTP server replied ${code}: ${line}`));
+        }
       };
       sock.on("data", onData);
     });
