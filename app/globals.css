@@ -1,26 +1,109 @@
 @import "tailwindcss";
 
+/* Brand palette — set as CSS variables, then exposed to utilities via @theme inline. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --brand-primary: #0b5ea8;
+  --brand-primary-dark: #084a86;
+  --brand-primary-light: #e8f1fa;
+  --brand-secondary: #2e7d32;
+  --brand-danger: #c62828;
+  --brand-ink: #12263a;
+  --brand-body: #40566e;
+  --brand-muted: #64748b;
+  --brand-surface: #ffffff;
+  --brand-canvas: #f7fafd;
+  --brand-line: #e3e9f0;
+  --brand-callout: #0f2c4c;
+  --brand-amber: #b45309;
+  --brand-amber-light: #fdf3e3;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--brand-surface);
+  --color-foreground: var(--brand-ink);
+  --color-primary: var(--brand-primary);
+  --color-primary-dark: var(--brand-primary-dark);
+  --color-primary-light: var(--brand-primary-light);
+  --color-secondary: var(--brand-secondary);
+  --color-danger: var(--brand-danger);
+  --color-ink: var(--brand-ink);
+  --color-body: var(--brand-body);
+  --color-muted: var(--brand-muted);
+  --color-surface: var(--brand-surface);
+  --color-canvas: var(--brand-canvas);
+  --color-line: var(--brand-line);
+  --color-callout: var(--brand-callout);
+  --color-amber: var(--brand-amber);
+  --color-amber-light: var(--brand-amber-light);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --shadow-soft: 0 1px 2px rgb(15 44 76 / 0.06), 0 8px 24px -12px rgb(15 44 76 / 0.18);
+  --shadow-card: 0 1px 2px rgb(15 44 76 / 0.05), 0 10px 30px -16px rgb(15 44 76 / 0.22);
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--brand-canvas);
+    color: var(--brand-body);
+    font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--brand-ink);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background-color: var(--brand-primary);
+    color: #ffffff;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Subtle entrance animation used by the Reveal component. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise {
+  animation: rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Decorative grid backdrop for dark callout sections. */
+.backdrop-grid {
+  background-image:
+    radial-gradient(circle at 12% 20%, rgb(255 255 255 / 0.08) 0, transparent 32%),
+    radial-gradient(circle at 88% 80%, rgb(255 255 255 / 0.07) 0, transparent 36%);
 }

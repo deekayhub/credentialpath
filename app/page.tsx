@@ -1,69 +1,146 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import { Container } from "@/components/ui/container";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { LinkButton } from "@/components/ui/button";
+import { Icon } from "@/components/icon";
+import { HomeHero } from "@/components/sections/home-hero";
+import { ServiceGrid } from "@/components/sections/service-card";
+import { ProcessTimeline } from "@/components/sections/process-timeline";
+import { Differentiators } from "@/components/sections/differentiators";
+import { FaqPreview } from "@/components/sections/faq-preview";
+import { CtaSection } from "@/components/sections/cta-section";
+import { services } from "@/content/services";
+import { processSteps, processIntro } from "@/content/process";
+import { payerCatalog } from "@/content/payers";
+import { homepageFaqPreview } from "@/content/faqs";
+import { whyIntro } from "@/content/answers";
+import { getPageMeta } from "@/content/seo";
 
-export default function Home() {
+export const metadata: Metadata = {
+  ...getPageMeta("/"),
+  alternates: { canonical: "/" },
+};
+
+export default function HomePage() {
+  const topPayers = payerCatalog.filter((p) => p.category !== "registration").slice(0, 8);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+    <>
+      <HomeHero />
+
+      <section className="py-16 md:py-24">
+        <Container>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeading
+              eyebrow="What we handle"
+              title="Credentialing services across the full lifecycle"
+              description="From verifying a provider's record to submitting applications and keeping cycles current — one coordinated service instead of a dozen scattered tasks."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            <LinkButton href="/services" variant="secondary" icon="arrowRight" iconRight className="shrink-0">
+              All services
+            </LinkButton>
+          </div>
+          <ServiceGrid services={services} className="mt-10" />
+        </Container>
+      </section>
+
+      <section className="border-y border-line bg-canvas py-16 md:py-24">
+        <Container>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeading
+              {...processIntro}
+              align="left"
+            />
+            <LinkButton href="/how-it-works" variant="secondary" icon="arrowRight" iconRight className="shrink-0">
+              See how it works
+            </LinkButton>
+          </div>
+          <ProcessTimeline steps={processSteps} compact className="mt-10" />
+        </Container>
+      </section>
+
+      <section className="py-16 md:py-24">
+        <Container>
+          <SectionHeading
+            {...whyIntro}
+            align="center"
+          />
+          <Differentiators className="mt-10" />
+        </Container>
+      </section>
+
+      <section className="border-y border-line bg-canvas py-16 md:py-24">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+            <div>
+              <SectionHeading
+                eyebrow="Payers we support"
+                title="Enrollment prepared for the payers your practice actually bills"
+                description="We prepare and submit enrollment applications for Medicare and Medicaid programs and the major commercial plans practices work with every day."
+              />
+              <ul className="mt-6 flex flex-wrap gap-2">
+                {topPayers.map((payer) => (
+                  <li
+                    key={payer.name}
+                    className="rounded-lg border border-line bg-surface px-3 py-2 text-sm font-medium text-ink"
+                  >
+                    {payer.name}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8">
+                <LinkButton href="/payers" variant="secondary" icon="arrowRight" iconRight>
+                  View all payers &amp; registries
+                </LinkButton>
+              </div>
+            </div>
+            <div className="rounded-2xl border border-line bg-surface p-6 shadow-card">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white">
+                  <Icon name="globalNetwork" className="h-6 w-6" />
+                </span>
+                <h3 className="text-lg font-semibold text-ink">The systems behind every payer</h3>
+              </div>
+              <p className="mt-4 text-[0.9375rem] leading-relaxed text-body">
+                Payers pull provider data from a handful of shared systems. We keep the underlying
+                profiles accurate and current so the applications built on them hold up —
+                regardless of which payer, facility, or network they go to.
+              </p>
+              <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+                {payerCatalog
+                  .filter((p) => p.category === "registration")
+                  .map((p) => (
+                    <li
+                      key={p.name}
+                      className="flex items-center gap-2 rounded-lg bg-canvas px-3 py-2 text-sm font-semibold text-ink"
+                    >
+                      <Icon name="check" className="h-4 w-4 text-primary" />
+                      {p.name.replace(" (NPPES)", "")}
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16 md:py-24">
+        <Container>
+          <FaqPreview items={homepageFaqPreview} href="/faq" />
+        </Container>
+      </section>
+
+      <CtaSection
+        title={<>Credentialing done right the first time.</>}
+        description="Tell us what you're enrolling and we'll map the next steps — and the document list — before anything gets submitted."
+        primaryCta={{ href: "/request-credentialing", label: "Request Credentialing" }}
+        secondaryCta={{ href: "/contact", label: "Talk to our team" }}
+        points={[
+          "Structured intake keeps data collection painless",
+          "Documentation tracked to each payer's requirements",
+          "Follow-up until enrollment is confirmed, not just submitted",
+        ]}
+      />
+    </>
   );
 }
