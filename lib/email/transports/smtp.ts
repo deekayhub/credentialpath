@@ -41,12 +41,12 @@ class SmtpClient {
 
   async send(message: string): Promise<void> {
     await this.connectAndGreet();
-    await this.command("EHLO credentialpath.local");
+    await this.command("EHLO AKSCredential.local");
     const needsStartTls = !this.config.secure && this.config.port !== 465;
     if (needsStartTls && this.config.user) {
       await this.command("STARTTLS");
       await this.upgradeToTls();
-      await this.command("EHLO credentialpath.local");
+      await this.command("EHLO AKSCredential.local");
     }
     if (this.config.user && this.config.password) {
       await this.command("AUTH LOGIN");
@@ -201,7 +201,7 @@ function buildBody(payload: InquiryPayload): { plain: string; html: string } {
     <div style="max-width:600px;margin:0 auto;padding:24px;">
       <h2 style="color:#12263a;margin:0 0 16px;">New credentialing inquiry</h2>
       <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%;background:#ffffff;border:1px solid #e3e9f0;border-radius:12px;">${items}</table>
-      <p style="color:#64748b;font-size:12px;margin-top:16px;">Sent from the CredentialPath website inquiry form.</p>
+      <p style="color:#64748b;font-size:12px;margin-top:16px;">Sent from the AKSCredential website inquiry form.</p>
     </div></body></html>`;
 
   return { plain, html };

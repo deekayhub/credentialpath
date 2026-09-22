@@ -46,7 +46,7 @@ export const differentiators: Anchor[] = [
 ];
 
 export const whyIntro = {
-  eyebrow: "Why CredentialPath",
+  eyebrow: "Why AKSCredential",
   title: "Credentialing deserves a dedicated process, not a part-time scramble",
   description:
     "Most delays in credentialing are preventable. They come from missing documents, unanswered follow-ups, and cycles that lapse because nobody was tracking them. We exist to remove those failure points — with an organized, accountable process built around the credentialing workflow.",
@@ -54,7 +54,7 @@ export const whyIntro = {
 
 export const aboutCopy = {
   intro: [
-    "CredentialPath is a credentialing-focused operation built around one thing: getting providers credentialed, enrolled, and re-credentialed without the delays that typically slow the process down.",
+    "AKSCredential is a credentialing-focused operation built around one thing: getting providers credentialed, enrolled, and re-credentialed without the delays that typically slow the process down.",
     "Credentialing sits between a practice and its revenue. A provider who isn't enrolled can treat patients but can't bill. Every week spent on disorganized documentation and unanswered follow-ups is revenue deferred — and too often, lost.",
   ],
   sections: [

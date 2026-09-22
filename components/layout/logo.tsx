@@ -32,8 +32,8 @@ export function Logo({
           tone === "light" ? "text-white" : "text-ink",
         )}
       >
-        <span className={tone === "light" ? "text-white" : "text-ink"}>Credential</span>
-        <span className="text-primary">Path</span>
+        <span className={tone === "light" ? "text-white" : "text-ink"}>AKS</span>
+        <span className="text-primary">Credential</span>
       </span>
     </span>
   );

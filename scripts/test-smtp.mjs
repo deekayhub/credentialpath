@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Standalone SMTP diagnostic for the CredentialPath contact form.
+ * Standalone SMTP diagnostic for the AKSCredential contact form.
  *
  * Reads the same variables from `.env` as `lib/email/index.ts`, then performs
  * a real SMTP conversation (connect, EHLO, STARTTLS, AUTH LOGIN, send) with

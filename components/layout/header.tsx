@@ -16,7 +16,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur">
       <div className="mx-auto flex h-[4.5rem] w-full max-w-[72rem] items-center justify-between gap-6 px-5 sm:px-8">
-        <Link href="/" aria-label="CredentialPath home" onClick={() => setMenuOpen(false)}>
+        <Link href="/" aria-label="AKSCredential home" onClick={() => setMenuOpen(false)}>
           <Logo />
         </Link>
 

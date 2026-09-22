@@ -7,7 +7,7 @@ Primary keywords (single concepts, no stuffing): medical credentialing services,
 
 ## 2. Metadata API
 
-- Root layout: `metadataBase` from `NEXT_PUBLIC_SITE_URL`, default title template `%s | CredentialPath`, description, OG/Twitter defaults, canonical strategy, `robots` index follow.
+- Root layout: `metadataBase` from `NEXT_PUBLIC_SITE_URL`, default title template `%s | AKSCredential`, description, OG/Twitter defaults, canonical strategy, `robots` index follow.
 - Every page: unique `title` + `description` (see `content/seo.ts` and `docs/05`).
 - Per-service `generateMetadata` from `content/services.ts`.
 

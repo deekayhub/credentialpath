@@ -16,7 +16,7 @@ export default function WhyUsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Why CredentialPath"
+        eyebrow="Why AKSCredential"
         title="Credentialing deserves a dedicated process, not a part-time scramble"
         description={whyIntro.description}
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Why Us" }]}

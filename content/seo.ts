@@ -17,7 +17,7 @@ export const pageMeta: Record<
   "/about": {
     title: "About Us",
     description:
-      "CredentialPath is a credentialing-focused service managing the full lifecycle — data collection, documentation, payer enrollment, follow-up, and re-credentialing.",
+      "AKSCredential is a credentialing-focused service managing the full lifecycle — data collection, documentation, payer enrollment, follow-up, and re-credentialing.",
   },
   "/services": {
     title: "Credentialing & Enrollment Services",
@@ -35,7 +35,7 @@ export const pageMeta: Record<
       "Our six-stage credentialing process: data collection, documentation, application to payer, follow-up, enrollment confirmation, and re-credentialing.",
   },
   "/why-us": {
-    title: "Why Choose CredentialPath",
+    title: "Why Choose AKSCredential",
     description:
       "A dedicated credentialing process with organized documentation, proactive follow-up, tracked re-credentialing, and clear accountability.",
   },
@@ -56,11 +56,11 @@ export const pageMeta: Record<
   },
   "/privacy-policy": {
     title: "Privacy Policy",
-    description: "How CredentialPath collects, uses, and protects information submitted through this website.",
+    description: "How AKSCredential collects, uses, and protects information submitted through this website.",
   },
   "/terms": {
     title: "Terms of Use",
-    description: "The terms that govern use of the CredentialPath website and its inquiry services.",
+    description: "The terms that govern use of the AKSCredential website and its inquiry services.",
   },
 };
 

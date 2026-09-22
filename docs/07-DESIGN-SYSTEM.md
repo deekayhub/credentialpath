@@ -1,11 +1,11 @@
 # 07 — Design System
 
-Brand (proposed): **CredentialPath** — medical credentialing & payer enrollment services.
+Brand (proposed): **AKSCredential** — medical credentialing & payer enrollment services.
 Visual tone: professional, clinical-calm, trustworthy. No playful accents.
 
 ## 1. Brand Name Handling
 
-`[PROPOSED]` — "CredentialPath" is a working brand used throughout this build. It is configurable in `content/site.ts`. Business must confirm the final brand/domain before launch.
+`[PROPOSED]` — "AKSCredential" is a working brand used throughout this build. It is configurable in `content/site.ts`. Business must confirm the final brand/domain before launch.
 
 ## 2. Color Tokens (Tailwind 4 `@theme`)
 

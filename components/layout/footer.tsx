@@ -16,7 +16,7 @@ export function Footer() {
       <div className="mx-auto w-full max-w-[72rem] px-5 py-14 sm:px-8 md:py-16">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr]">
           <div>
-            <Link href="/" aria-label="CredentialPath home">
+            <Link href="/" aria-label="AKSCredential home">
               <Logo tone="light" />
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/70">

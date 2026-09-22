@@ -4,7 +4,7 @@ Shared pattern for every page: `PageHero` (eyebrow, title, description, CTAs), b
 
 ## Home `/`
 
-- **SEO title:** "Medical Credentialing & Payer Enrollment Services | CredentialPath"
+- **SEO title:** "Medical Credentialing & Payer Enrollment Services | AKSCredential"
 - **Meta description:** Explanatory, ~155 chars, conversion-oriented.
 - **Hero:** Eyebrow "Provider Credentialing · Payer Enrollment · Re-Credentialing". H1 answers: what we do / who we help / why it matters. Primary CTA "Request Credentialing", secondary "Explore Services".
 - **Sections:** Trust/value bar → Credentialing overview (editorial split) → Services grid → 6-stage process preview → Payers preview → Why choose us → Re-credentialing/ongoing support → FAQ preview → CTA.

@@ -4,7 +4,7 @@ Items that need business answer before go-live. Configure in `content/site.ts` w
 
 | ID | Question | Why it matters | Current assumption |
 |---|---|---|---|
-| QQ-01 | Brand name + domain? | All copy, metadata, OG, footer | "CredentialPath" `[PROPOSED]` |
+| QQ-01 | Brand name + domain? | All copy, metadata, OG, footer | "AKSCredential" `[PROPOSED]` |
 | QQ-02 | Contact email + phone to publish? | Contact page, footer, thank-you | From env vars; phone optional |
 | QQ-03 | Any compliance claims allowed (HIPAA, privacy statement specifics)? | Legal pages + trust copy | Neutral phrasing only `[PROPOSED]` |
 | QQ-04 | Payer list complete? Add/remove? | `/payers` accuracy | Business-source list; "not exhaustive" note |

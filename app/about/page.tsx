@@ -18,7 +18,7 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About Us"
-        title="The operation behind CredentialPath"
+        title="The operation behind AKSCredential"
         description="A credentialing-focused operation built around one thing: getting providers credentialed, enrolled, and re-credentialed without the usual delays."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "About Us" }]}
       />
