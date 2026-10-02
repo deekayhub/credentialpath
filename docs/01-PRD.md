@@ -1,6 +1,6 @@
 # 01 — Product Requirements Document (PRD)
 
-**Project:** AKSCredential (proposed brand) — Medical Credentialing & Payer Enrollment Public Website
+**Project:** TrioRCM (proposed brand) — Medical Credentialing & Payer Enrollment Public Website
 **Status:** Draft for business review
 **Source:** `F:\september\credential\docs\01-PRD.md` (business source of truth)
 

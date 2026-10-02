@@ -1,14 +1,14 @@
 export const site = {
   /** [PROPOSED] working brand name — confirm with business (QQ-01). */
-  name: "AKSCredential",
+  name: "TrioRCM",
   tagline: "Medical credentialing and payer enrollment services",
   description:
-    "AKSCredential helps physicians, advanced practitioners, practices, and medical groups through the full credentialing lifecycle — data collection, documentation, payer enrollment, follow-up, and re-credentialing.",
+    "TrioRCM helps physicians, advanced practitioners, practices, and medical groups through the full credentialing lifecycle — data collection, documentation, payer enrollment, follow-up, and re-credentialing.",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
     "http://localhost:3000",
   /** Configure via env: CONTACT_EMAIL. Fallback is a proposed support address. */
-  contactEmail: process.env.CONTACT_EMAIL ?? "inquiries@AKSCredential.com",
+  contactEmail: process.env.CONTACT_EMAIL ?? "inquiries@TrioRCM.com",
   /** Configure via env: CONTACT_PHONE. Rendered only when set. */
   contactPhone: process.env.CONTACT_PHONE?.trim() || null,
   privacyEmailNote:

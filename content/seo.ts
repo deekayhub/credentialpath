@@ -17,7 +17,7 @@ export const pageMeta: Record<
   "/about": {
     title: "About Us",
     description:
-      "AKSCredential is a credentialing-focused service managing the full lifecycle — data collection, documentation, payer enrollment, follow-up, and re-credentialing.",
+      "TrioRCM is a credentialing-focused service managing the full lifecycle — data collection, documentation, payer enrollment, follow-up, and re-credentialing.",
   },
   "/services": {
     title: "Credentialing & Enrollment Services",
@@ -35,7 +35,7 @@ export const pageMeta: Record<
       "Our six-stage credentialing process: data collection, documentation, application to payer, follow-up, enrollment confirmation, and re-credentialing.",
   },
   "/why-us": {
-    title: "Why Choose AKSCredential",
+    title: "Why Choose TrioRCM",
     description:
       "A dedicated credentialing process with organized documentation, proactive follow-up, tracked re-credentialing, and clear accountability.",
   },
@@ -56,11 +56,11 @@ export const pageMeta: Record<
   },
   "/privacy-policy": {
     title: "Privacy Policy",
-    description: "How AKSCredential collects, uses, and protects information submitted through this website.",
+    description: "How TrioRCM collects, uses, and protects information submitted through this website.",
   },
   "/terms": {
     title: "Terms of Use",
-    description: "The terms that govern use of the AKSCredential website and its inquiry services.",
+    description: "The terms that govern use of the TrioRCM website and its inquiry services.",
   },
 };
 
