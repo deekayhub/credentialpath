@@ -172,7 +172,7 @@ function renderField(
   const error = errors[field.name];
 
   const base = cn(
-    "w-full rounded-lg border bg-white px-3.5 py-2.5 text-[0.9375rem] text-ink placeholder:text-muted/70 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/35",
+    "w-full rounded-lg border bg-surface px-3.5 py-2.5 text-[0.9375rem] text-ink placeholder:text-muted/70 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/35",
     error ? "border-danger focus:border-danger" : "border-line focus:border-primary",
   );
 
@@ -247,7 +247,7 @@ function renderField(
             name={field.name}
             value={String(value ?? "")}
             onChange={(e) => onChange(field.name, e.target.value)}
-            className={cn(base, "appearance-none bg-no-repeat pr-9")}
+            className={cn(base, "appearance-none bg-no-repeat pr-9 [&_option]:bg-surface [&_option]:text-ink")}
             style={{
               backgroundImage:
                 "url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E\")",
@@ -276,7 +276,7 @@ function renderField(
                 <label
                   key={opt.value}
                   className={cn(
-                    "flex cursor-pointer items-center gap-2.5 rounded-lg border bg-white px-3 py-2.5 text-sm text-ink transition-colors",
+                    "flex cursor-pointer items-center gap-2.5 rounded-lg border bg-surface px-3 py-2.5 text-sm text-ink transition-colors",
                     checked ? "border-primary bg-primary-light" : "border-line hover:border-primary/40",
                   )}
                 >
@@ -310,7 +310,7 @@ function renderField(
               <label
                 key={opt.value}
                 className={cn(
-                  "flex cursor-pointer items-center gap-2 rounded-lg border bg-white px-3.5 py-2.5 text-sm text-ink transition-colors",
+                  "flex cursor-pointer items-center gap-2 rounded-lg border bg-surface px-3.5 py-2.5 text-sm text-ink transition-colors",
                   value === opt.value
                     ? "border-primary bg-primary-light"
                     : "border-line hover:border-primary/40",

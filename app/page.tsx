@@ -96,7 +96,7 @@ export default function HomePage() {
             </div>
             <div className="rounded-2xl border border-line bg-surface p-6 shadow-card">
               <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white">
+                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-on-primary">
                   <Icon name="globalNetwork" className="h-6 w-6" />
                 </span>
                 <h3 className="text-lg font-semibold text-ink">The systems behind every payer</h3>

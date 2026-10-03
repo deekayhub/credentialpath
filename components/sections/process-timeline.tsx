@@ -24,7 +24,7 @@ export function ProcessTimeline({
             )}
           >
             <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary text-white">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary text-on-primary">
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"

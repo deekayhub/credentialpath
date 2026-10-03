@@ -4,7 +4,7 @@ import { LinkButton } from "@/components/ui/button";
 
 export default function NotFound() {
   return (
-    <section className="bg-gradient-to-b from-white to-canvas py-20 md:py-28">
+    <section className="bg-gradient-to-b from-surface to-canvas py-20 md:py-28">
       <Container className="max-w-2xl text-center">
         <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
           404

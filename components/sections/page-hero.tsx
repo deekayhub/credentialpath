@@ -25,7 +25,7 @@ export function PageHero({
   return (
     <section
       className={cn(
-        "border-b border-line bg-gradient-to-b from-white to-canvas",
+        "border-b border-line bg-gradient-to-b from-surface to-canvas",
         className,
       )}
     >

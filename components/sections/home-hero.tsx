@@ -6,7 +6,7 @@ import { processSteps } from "@/content/process";
 export function HomeHero() {
   const preview = processSteps.slice(0, 4);
   return (
-    <section className="border-b border-line bg-gradient-to-b from-white via-white to-canvas">
+    <section className="border-b border-line bg-gradient-to-b from-surface via-surface to-canvas">
       <Container className="grid gap-12 pb-16 pt-14 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:pb-24 lg:pt-20">
         <div>
           <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary-light px-3.5 py-1.5 text-[0.8125rem] font-semibold text-primary">
@@ -57,7 +57,7 @@ export function HomeHero() {
                 </li>
               ))}
               <li className="flex items-center gap-3">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary text-xs font-bold text-white">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary text-xs font-bold text-on-primary">
                   5
                 </span>
                 <p className="text-sm font-semibold text-ink">…and into re-credentialing</p>

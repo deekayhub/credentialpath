@@ -22,7 +22,9 @@ export type IconName =
   | "mapPin"
   | "calendar"
   | "quote"
-  | "chevronRight";
+  | "chevronRight"
+  | "sun"
+  | "moon";
 
 export type UserField = {
   name: string;

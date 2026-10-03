@@ -52,7 +52,7 @@ export default function RequestCredentialingPage() {
                   { title: "We start with intake", body: "If it's a fit, we begin structured data collection and documentation." },
                 ].map((step, i) => (
                   <li key={step.title} className="flex gap-3">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-primary text-xs font-bold text-white">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-primary text-xs font-bold text-on-primary">
                       {i + 1}
                     </span>
                     <div>

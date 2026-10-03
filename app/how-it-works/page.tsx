@@ -31,7 +31,7 @@ export default function HowItWorksPage() {
                 className="grid gap-6 rounded-xl border border-line bg-surface p-6 shadow-soft md:grid-cols-[180px_1fr] md:p-8"
               >
                 <div className="flex items-center gap-4 md:flex-col md:items-start">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary text-2xl font-bold text-white">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary text-2xl font-bold text-on-primary">
                     {Number(step.step)}
                   </span>
                   <div>

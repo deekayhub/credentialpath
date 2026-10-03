@@ -39,19 +39,31 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0B5EA8",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#0B5EA8" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a1421" },
+  ],
 };
+
+/* Applies the stored theme before first paint so dark-mode users never see a
+   white flash. Keep this in sync with THEME_STORAGE_KEY in components/theme-toggle.tsx. */
+const themeScript = `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      data-theme="light"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="flex min-h-full flex-col bg-canvas text-body">
         <a
           href="#main-content"
-          className="sr-only z-[100] rounded-lg bg-primary px-4 py-2 text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+          className="sr-only z-[100] rounded-lg bg-primary px-4 py-2 text-on-primary focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
         >
           Skip to content
         </a>

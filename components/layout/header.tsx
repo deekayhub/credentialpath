@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { navigation } from "@/content/site";
 import { Logo } from "@/components/layout/logo";
 import { Icon } from "@/components/icon";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { MobileMenu, MobileMenuButton } from "@/components/navigation/mobile-menu";
 import { cn } from "@/lib/utils";
 
@@ -14,7 +15,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-line bg-surface/95 backdrop-blur">
       <div className="mx-auto flex h-[4.5rem] w-full max-w-[72rem] items-center justify-between gap-6 px-5 sm:px-8">
         <Link href="/" aria-label="TrioRCM home" onClick={() => setMenuOpen(false)}>
           <Logo />
@@ -64,9 +65,10 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <ThemeToggle />
           <Link
             href="/request-credentialing"
-            className="hidden rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-dark lg:inline-flex"
+            className="hidden rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-on-primary transition-colors hover:bg-primary-dark lg:inline-flex"
           >
             Request Credentialing
           </Link>

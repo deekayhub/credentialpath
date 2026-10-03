@@ -1,10 +1,14 @@
 @import "tailwindcss";
 
+/* Class-free, attribute-driven dark mode. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 /* Brand palette — set as CSS variables, then exposed to utilities via @theme inline. */
 :root {
   --brand-primary: #0b5ea8;
   --brand-primary-dark: #084a86;
   --brand-primary-light: #e8f1fa;
+  --brand-on-primary: #ffffff;
   --brand-secondary: #2e7d32;
   --brand-danger: #c62828;
   --brand-ink: #12263a;
@@ -16,6 +20,32 @@
   --brand-callout: #0f2c4c;
   --brand-amber: #b45309;
   --brand-amber-light: #fdf3e3;
+  --brand-shadow-soft: 0 1px 2px rgb(15 44 76 / 0.06), 0 8px 24px -12px rgb(15 44 76 / 0.18);
+  --brand-shadow-card: 0 1px 2px rgb(15 44 76 / 0.05), 0 10px 30px -16px rgb(15 44 76 / 0.22);
+}
+
+/* Dark palette. Overrides the same custom properties, so every `bg-*`/`text-*`
+   utility re-themes without a single component change. `--brand-on-primary`
+   flips to near-black because a dark-mode primary is too light to carry white text. */
+[data-theme="dark"] {
+  --brand-primary: #58a9ea;
+  --brand-primary-dark: #7cc0f2;
+  --brand-primary-light: #16293d;
+  --brand-on-primary: #06121f;
+  --brand-secondary: #6ec071;
+  --brand-danger: #f2635f;
+  --brand-ink: #e9eff6;
+  --brand-body: #adbecf;
+  --brand-muted: #8296ab;
+  --brand-surface: #101d2e;
+  --brand-canvas: #0a1421;
+  --brand-line: #1d2f47;
+  --brand-callout: #0d1c2e;
+  --brand-amber: #e8a44a;
+  --brand-amber-light: #2c2415;
+  /* Shadows carry a navy tint that vanishes on a dark canvas. */
+  --brand-shadow-soft: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+  --brand-shadow-card: 0 1px 2px rgb(0 0 0 / 0.35), 0 10px 30px -16px rgb(0 0 0 / 0.65);
 }
 
 @theme inline {
@@ -24,6 +54,7 @@
   --color-primary: var(--brand-primary);
   --color-primary-dark: var(--brand-primary-dark);
   --color-primary-light: var(--brand-primary-light);
+  --color-on-primary: var(--brand-on-primary);
   --color-secondary: var(--brand-secondary);
   --color-danger: var(--brand-danger);
   --color-ink: var(--brand-ink);
@@ -37,8 +68,8 @@
   --color-amber-light: var(--brand-amber-light);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --shadow-soft: 0 1px 2px rgb(15 44 76 / 0.06), 0 8px 24px -12px rgb(15 44 76 / 0.18);
-  --shadow-card: 0 1px 2px rgb(15 44 76 / 0.05), 0 10px 30px -16px rgb(15 44 76 / 0.22);
+  --shadow-soft: var(--brand-shadow-soft);
+  --shadow-card: var(--brand-shadow-card);
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
@@ -68,7 +99,7 @@
 
   ::selection {
     background-color: var(--brand-primary);
-    color: #ffffff;
+    color: var(--brand-on-primary);
   }
 
   @media (prefers-reduced-motion: reduce) {

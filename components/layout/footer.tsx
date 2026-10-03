@@ -17,7 +17,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr]">
           <div>
             <Link href="/" aria-label="TrioRCM home">
-              <Logo />
+              <Logo variant="onDark" />
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/70">
               {site.tagline}. We manage the full credentialing lifecycle — data

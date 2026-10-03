@@ -76,7 +76,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
             <Link
               href="/request-credentialing"
               onClick={onClose}
-              className="flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-dark"
+              className="flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-on-primary transition-colors hover:bg-primary-dark"
             >
               Request Credentialing
               <Icon name="arrowRight" className="h-4 w-4" />

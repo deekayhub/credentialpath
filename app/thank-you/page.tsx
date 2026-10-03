@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function ThankYouPage() {
   return (
-    <section className="bg-gradient-to-b from-white to-canvas py-20 md:py-28">
+    <section className="bg-gradient-to-b from-surface to-canvas py-20 md:py-28">
       <Container className="max-w-2xl text-center">
         <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-light text-primary">
           <Icon name="badgeCheck" className="h-8 w-8" />

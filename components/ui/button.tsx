@@ -10,7 +10,7 @@ const base =
   "inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-primary text-white hover:bg-primary-dark",
+  primary: "bg-primary text-on-primary hover:bg-primary-dark",
   secondary:
     "border border-line bg-surface text-ink hover:border-primary hover:text-primary",
   ghost: "text-primary hover:bg-primary-light",

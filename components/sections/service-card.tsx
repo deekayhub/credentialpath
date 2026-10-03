@@ -12,7 +12,7 @@ export function ServiceCard({ service, compact }: { service: Service; compact?: 
         compact && "p-5",
       )}
     >
-      <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary-light text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+      <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary-light text-primary transition-colors group-hover:bg-primary group-hover:text-on-primary">
         <Icon name={service.icon} className="h-6 w-6" />
       </span>
       <h3 className={cn("mt-4 text-lg font-semibold text-ink", compact && "text-base")}>
