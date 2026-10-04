@@ -18,7 +18,7 @@ type LogoProps = {
 export function Logo({ className, variant = "auto" }: LogoProps) {
   const onDark = (
     <img
-      src="/triorcm-logo-dark.png"
+      src="/trio-rcm-logo-dark.png"
       alt="TrioRCM"
       className={cn("h-9 w-auto", variant === "auto" ? "hidden dark:block" : "block", className)}
     />
@@ -29,7 +29,7 @@ export function Logo({ className, variant = "auto" }: LogoProps) {
   return (
     <>
       <img
-        src="/triorcm-logo.png"
+        src="/trio-rcm-logo.png"
         alt="TrioRCM"
         className={cn("h-9 w-auto dark:hidden", className)}
       />
