@@ -67,6 +67,7 @@ export function InquiryForm({
     }
 
     const payload: InquiryPayload = {
+      formType: variant === "short" ? "contact" : "request-credentialing",
       fullName: String(values.fullName ?? ""),
       email: String(values.email ?? ""),
       phone: strField(values.phone),

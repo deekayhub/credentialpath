@@ -1,4 +1,4 @@
-import type { InquiryPayload } from "@/content/types";
+import type { InquiryFormType, InquiryPayload } from "@/content/types";
 
 export type FieldErrors = Record<string, string[]>;
 
@@ -33,6 +33,11 @@ const allowedProviderTypes = new Set([
 
 const allowedContact = new Set(["Email", "Phone"]);
 
+const allowedFormTypes = new Set<InquiryFormType>([
+  "contact",
+  "request-credentialing",
+]);
+
 const allowedStates = new Set(
   [
     "AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA",
@@ -52,6 +57,11 @@ export function validateInquiry(input: unknown): ValidationResult {
   const fullName = str(input.fullName);
   if (!fullName || fullName.length < 2 || fullName.length > 120) {
     push(errors, "fullName", "Please enter your name.");
+  }
+
+  const formType = str(input.formType);
+  if (formType && !allowedFormTypes.has(formType as InquiryFormType)) {
+    push(errors, "formType", "Unknown form type.");
   }
 
   const email = str(input.email).trim();
@@ -108,6 +118,7 @@ export function validateInquiry(input: unknown): ValidationResult {
   }
 
   const value: InquiryPayload = {
+    formType: (formType as InquiryFormType) || undefined,
     fullName: fullName.trim(),
     email,
     phone: phone || undefined,

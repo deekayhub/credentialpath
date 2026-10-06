@@ -67,7 +67,10 @@ export type InquiryField =
   | CheckboxField
   | RadioField;
 
+export type InquiryFormType = "contact" | "request-credentialing";
+
 export type InquiryPayload = {
+  formType?: InquiryFormType;
   fullName: string;
   email: string;
   phone?: string;

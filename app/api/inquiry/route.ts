@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { validateInquiry } from "@/lib/validation/inquiry";
 import { sendInquiryEmail } from "@/lib/email";
+import { saveContactLeadToGoogleSheet } from "@/lib/saveContactLeadToGoogleSheet";
 
 export const runtime = "nodejs";
 
@@ -67,6 +68,18 @@ export async function POST(req: Request) {
       { ok: false, message: "We couldn't send your request. Please try again." },
       { status: 500 },
     );
+  }
+
+  // Contact form leads only, and only once the email has gone out. A sheet
+  // failure must not turn a successful inquiry into an error for the visitor.
+  if (result.data.formType === "contact") {
+    await saveContactLeadToGoogleSheet({
+      name: result.data.fullName,
+      email: result.data.email,
+      phone: result.data.phone,
+      company: result.data.organization,
+      message: result.data.message,
+    });
   }
 
   return NextResponse.json({ ok: true });
